@@ -867,3 +867,1781 @@ img {
         justify-content: center;
     }
 }
+
+/* ===== WP RECIPE MAKER STYLING ===== */
+.wprm-recipe-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    font-family: 'Poppins', sans-serif;
+}
+
+.wprm-recipe-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.wprm-recipe-summary {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Recipe Meta (Times, Servings) */
+.wprm-recipe-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 25px;
+    background: var(--secondary-color);
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.wprm-recipe-details .wprm-recipe-block-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.wprm-recipe-details .wprm-recipe-detail-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.wprm-recipe-details .wprm-recipe-detail-value,
+.wprm-recipe-time,
+.wprm-recipe-servings {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Section Headers */
+.wprm-recipe-header,
+.wprm-recipe-group-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--dark-color);
+    margin: 30px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+}
+
+/* Ingredients Section */
+.wprm-recipe-ingredients {
+    margin-bottom: 40px;
+}
+
+.wprm-recipe-ingredient-group {
+    margin-bottom: 25px;
+}
+
+.wprm-recipe-ingredient {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.3s ease;
+}
+
+.wprm-recipe-ingredient:hover {
+    background: var(--secondary-color);
+    padding-left: 10px;
+    border-radius: 8px;
+}
+
+.wprm-recipe-ingredient:last-child {
+    border-bottom: none;
+}
+
+.wprm-recipe-ingredient-amount,
+.wprm-recipe-ingredient-unit {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.wprm-recipe-ingredient-name {
+    color: var(--text-color);
+}
+
+.wprm-recipe-ingredient-notes {
+    font-style: italic;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Checkbox styling for ingredients */
+.wprm-recipe-ingredient input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.wprm-recipe-ingredient input[type="checkbox"]:checked+span {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+/* Instructions Section */
+.wprm-recipe-instructions {
+    margin-bottom: 40px;
+}
+
+.wprm-recipe-instruction-group {
+    margin-bottom: 25px;
+}
+
+.wprm-recipe-instruction {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.wprm-recipe-instruction:last-child {
+    border-bottom: none;
+}
+
+.wprm-recipe-instruction-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-warm);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.wprm-recipe-instruction-text {
+    flex: 1;
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.wprm-recipe-instruction-image {
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.wprm-recipe-instruction-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Equipment Section */
+.wprm-recipe-equipment {
+    margin-bottom: 40px;
+}
+
+.wprm-recipe-equipment-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    border-radius: 25px;
+    margin: 5px;
+    font-size: 0.95rem;
+}
+
+.wprm-recipe-equipment-icon {
+    font-size: 1.2rem;
+}
+
+/* Notes Section */
+.wprm-recipe-notes {
+    background: linear-gradient(135deg, #fff8f0 0%, #fff4e6 100%);
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 4px solid var(--accent-color);
+    margin-bottom: 30px;
+}
+
+.wprm-recipe-notes-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.wprm-recipe-notes p {
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+/* Nutrition Section */
+.wprm-recipe-nutrition {
+    background: var(--secondary-color);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.wprm-nutrition-label-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.wprm-nutrition-label-container .wprm-nutrition-label-text-nutrient-container {
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.wprm-nutrition-label-container .wprm-nutrition-label-text-nutrient {
+    font-size: 0.85rem;
+    color: #888;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.wprm-nutrition-label-container .wprm-nutrition-label-text-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Recipe Card Actions (Print, Pin, etc.) */
+.wprm-recipe-actions,
+.wprm-recipe-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.wprm-recipe-pin,
+.wprm-recipe-print,
+.wprm-recipe-action-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.wprm-recipe-print {
+    background: var(--dark-color);
+    color: #fff;
+}
+
+.wprm-recipe-print:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+.wprm-recipe-pin {
+    background: #bd081c;
+    color: #fff;
+}
+
+.wprm-recipe-pin:hover {
+    background: #a00718;
+    transform: translateY(-2px);
+}
+
+/* Star Rating */
+.wprm-recipe-rating {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.wprm-rating-star {
+    color: #ffc107;
+    font-size: 1.5rem;
+}
+
+.wprm-rating-star-empty {
+    color: #ddd;
+}
+
+/* Recipe Image */
+.wprm-recipe-image {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.wprm-recipe-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Categories/Tags */
+.wprm-recipe-course,
+.wprm-recipe-cuisine,
+.wprm-recipe-keyword {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 5px;
+    padding: 8px 16px;
+    background: var(--secondary-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.wprm-recipe-course a,
+.wprm-recipe-cuisine a,
+.wprm-recipe-keyword a {
+    color: var(--dark-color);
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .wprm-recipe-container {
+        padding: 25px 20px;
+        margin: 20px 10px;
+    }
+
+    .wprm-recipe-name {
+        font-size: 1.8rem;
+    }
+
+    .wprm-recipe-details {
+        gap: 20px;
+    }
+
+    .wprm-recipe-instruction {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .wprm-recipe-instruction-number {
+        align-self: flex-start;
+    }
+}
+
+/* Single Post Recipe Page Styling */
+.single-post .entry-content,
+.single .entry-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.single-post .entry-content h2,
+.single-post .entry-content h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-color);
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.single-post .entry-content h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.single-post .entry-content p {
+    line-height: 1.9;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.single-post .entry-content ul,
+.single-post .entry-content ol {
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.single-post .entry-content li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+/* ===== SINGLE POST HEADER ===== */
+.cs-single-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    padding: 15px 0;
+}
+
+.cs-single-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cs-single-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.cs-single-logo .cs-logo-icon {
+    font-size: 2rem;
+}
+
+.cs-single-logo .cs-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.cs-single-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+.cs-single-nav a {
+    color: var(--dark-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.cs-single-nav a:hover {
+    color: var(--primary-color);
+}
+
+.cs-single-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.cs-single-nav a:hover::after {
+    width: 100%;
+}
+
+.cs-single-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cs-search-toggle,
+.cs-social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.cs-search-toggle:hover,
+.cs-social-icon:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.cs-mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.cs-mobile-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--dark-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ===== SINGLE POST HERO ===== */
+.cs-post-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    max-height: 700px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 60px 20px;
+    margin-top: 70px;
+}
+
+.cs-post-hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.cs-post-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cs-post-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: 2;
+}
+
+.cs-post-hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 900px;
+}
+
+.cs-post-meta-top {
+    margin-bottom: 20px;
+}
+
+.cs-post-category {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.cs-post-category:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.cs-post-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cs-post-meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.cs-post-meta span {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cs-post-meta i {
+    color: var(--accent-color);
+}
+
+/* ===== SINGLE POST CONTENT ===== */
+.cs-post-content {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.cs-post-body {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-color);
+}
+
+.cs-post-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--dark-color);
+    margin: 50px 0 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+}
+
+.cs-post-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin: 40px 0 20px;
+}
+
+.cs-post-body h4 {
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    margin: 30px 0 15px;
+}
+
+.cs-post-body p {
+    margin-bottom: 25px;
+}
+
+.cs-post-body ul,
+.cs-post-body ol {
+    margin: 25px 0 25px 30px;
+}
+
+.cs-post-body li {
+    margin-bottom: 12px;
+    padding-left: 10px;
+}
+
+.cs-post-body img {
+    border-radius: 15px;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cs-post-body a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.cs-post-body a:hover {
+    color: var(--primary-dark);
+}
+
+.cs-post-body blockquote {
+    margin: 40px 0;
+    padding: 30px 40px;
+    background: linear-gradient(135deg, #fff8f0 0%, #fff4e6 100%);
+    border-left: 5px solid var(--accent-color);
+    border-radius: 0 15px 15px 0;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+/* ===== POST TAGS ===== */
+.cs-post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 50px 0;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.cs-tags-label {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.cs-tag {
+    display: inline-block;
+    padding: 8px 18px;
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    border-radius: 25px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cs-tag:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* ===== POST SHARE ===== */
+.cs-post-share {
+    text-align: center;
+    padding: 40px 0;
+    margin: 30px 0;
+    background: var(--secondary-color);
+    border-radius: 20px;
+}
+
+.cs-share-label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.cs-share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cs-share-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cs-share-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cs-share-facebook {
+    background: #1877f2;
+}
+
+.cs-share-twitter {
+    background: #1da1f2;
+}
+
+.cs-share-pinterest {
+    background: #bd081c;
+}
+
+.cs-share-whatsapp {
+    background: #25d366;
+}
+
+/* ===== AUTHOR BOX ===== */
+.cs-author-box {
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+    background: linear-gradient(135deg, #fff 0%, var(--secondary-color) 100%);
+    border-radius: 20px;
+    margin: 50px 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.cs-author-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cs-author-info {
+    flex: 1;
+}
+
+.cs-author-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+.cs-author-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    margin: 5px 0 15px;
+}
+
+.cs-author-bio {
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.cs-author-social {
+    display: flex;
+    gap: 12px;
+}
+
+.cs-author-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cs-author-social a:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+/* ===== RELATED POSTS ===== */
+.cs-related-posts {
+    padding: 80px 0;
+    background: var(--secondary-color);
+}
+
+.cs-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--dark-color);
+    margin-bottom: 50px;
+}
+
+.cs-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.cs-related-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.cs-related-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cs-related-image {
+    display: block;
+    height: 220px;
+    overflow: hidden;
+}
+
+.cs-related-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.cs-related-card:hover .cs-related-image img {
+    transform: scale(1.1);
+}
+
+.cs-related-content {
+    padding: 25px;
+}
+
+.cs-related-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.cs-related-content h3 a {
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cs-related-content h3 a:hover {
+    color: var(--primary-color);
+}
+
+.cs-related-date {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* ===== SINGLE POST FOOTER ===== */
+.cs-single-footer {
+    background: var(--dark-color);
+    color: #fff;
+}
+
+.cs-footer-top {
+    padding: 80px 0 50px;
+}
+
+.cs-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 50px;
+}
+
+.cs-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.cs-footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.cs-footer-social {
+    display: flex;
+    gap: 12px;
+}
+
+.cs-footer-social a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cs-footer-social a:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.cs-footer-links h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.cs-footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cs-footer-links li {
+    margin-bottom: 12px;
+}
+
+.cs-footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cs-footer-links a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.cs-footer-newsletter h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.cs-footer-newsletter p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.cs-mini-newsletter {
+    display: flex;
+    gap: 10px;
+}
+
+.cs-mini-newsletter input {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.cs-mini-newsletter input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.cs-mini-newsletter button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cs-mini-newsletter button:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.cs-footer-bottom {
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.cs-footer-bottom p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ===== SINGLE POST RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .cs-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cs-single-nav {
+        display: none;
+    }
+
+    .cs-mobile-toggle {
+        display: flex;
+    }
+
+    .cs-post-hero {
+        height: 60vh;
+        min-height: 400px;
+        margin-top: 60px;
+    }
+
+    .cs-post-title {
+        font-size: 2.2rem;
+    }
+
+    .cs-post-meta {
+        gap: 15px;
+    }
+
+    .cs-author-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .cs-author-social {
+        justify-content: center;
+    }
+
+    .cs-related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cs-footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .cs-footer-social,
+    .cs-mini-newsletter {
+        justify-content: center;
+    }
+}
+
+/* ===== ARCHIVE/CATEGORY PAGE ===== */
+.cs-archive-page {
+    padding-top: 70px;
+}
+
+.cs-archive-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    padding: 80px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.cs-archive-label {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.cs-archive-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.cs-archive-description {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    opacity: 0.9;
+}
+
+.cs-archive-count {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.cs-archive-content {
+    padding: 60px 0 80px;
+    background: var(--light-color);
+}
+
+.cs-recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.cs-recipe-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.cs-recipe-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.cs-recipe-card .cs-recipe-image {
+    display: block;
+    position: relative;
+    height: 0;
+    padding-bottom: 66.67%;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.cs-recipe-card .cs-recipe-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.cs-recipe-card:hover .cs-recipe-image img {
+    transform: scale(1.1);
+}
+
+.cs-recipe-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.cs-recipe-card .cs-recipe-content {
+    padding: 25px;
+}
+
+.cs-recipe-card .cs-recipe-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.cs-recipe-card .cs-recipe-content h3 a {
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cs-recipe-card .cs-recipe-content h3 a:hover {
+    color: var(--primary-color);
+}
+
+.cs-recipe-card .cs-recipe-content p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.cs-recipe-card .cs-recipe-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.cs-recipe-date {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.cs-recipe-date i {
+    margin-right: 5px;
+    color: var(--accent-color);
+}
+
+.cs-recipe-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.3s ease;
+}
+
+.cs-recipe-link:hover {
+    gap: 10px;
+}
+
+/* Pagination */
+.cs-pagination {
+    text-align: center;
+}
+
+.cs-pagination ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cs-pagination li {
+    margin: 0;
+}
+
+.cs-pagination a,
+.cs-pagination span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+    height: 45px;
+    padding: 0 15px;
+    background: #fff;
+    border-radius: 10px;
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.cs-pagination a:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.cs-pagination .current {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* No Posts */
+.cs-no-posts {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.cs-no-posts-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.cs-no-posts h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.cs-no-posts p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.cs-btn-primary {
+    display: inline-block;
+    background: var(--gradient-warm);
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cs-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(232, 90, 79, 0.4);
+}
+
+/* Archive Responsive */
+@media (max-width: 1024px) {
+    .cs-recipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cs-archive-title {
+        font-size: 2.5rem;
+    }
+
+    .cs-recipe-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cs-filter-buttons {
+        flex-wrap: wrap;
+    }
+}
+
+/* ===== CATEGORY FILTER ===== */
+.cs-category-filter {
+    padding: 30px 0;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cs-filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cs-filter-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cs-filter-btn:hover,
+.cs-filter-btn.active {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+
+    /* Hide non-essential elements */
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+
+    /* Hide navbar, footer, and navigation */
+    .site-header,
+    .ast-header,
+    #masthead,
+    .ast-mobile-header-wrap,
+    .ast-desktop-header,
+    #colophon,
+    .site-footer,
+    .cs-post-share,
+    .cs-post-tags,
+    .cs-related-posts,
+    .cs-author-box,
+    .cs-post-meta-top,
+    .cs-post-meta {
+        display: none !important;
+    }
+
+    /* Hide buttons and actions */
+    .wprm-recipe-actions,
+    .wprm-recipe-buttons,
+    .wprm-recipe-print,
+    .wprm-recipe-pin,
+    .wprm-recipe-action-button,
+    button,
+    .wp-block-buttons,
+    .cs-share-buttons {
+        display: none !important;
+    }
+
+    /* Main content */
+    .site-main,
+    .site-content,
+    main {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+        background: #fff;
+    }
+
+    /* Hero section optimization */
+    .cs-post-hero {
+        page-break-after: avoid;
+        margin: 0;
+        padding: 20px 0;
+        background: none;
+        color: #000;
+    }
+
+    .cs-post-hero-overlay {
+        display: none !important;
+    }
+
+    .cs-post-hero-image {
+        margin: 0 0 20px 0;
+        page-break-inside: avoid;
+    }
+
+    .cs-post-hero-image img {
+        max-width: 100%;
+        height: auto;
+        page-break-inside: avoid;
+    }
+
+    .cs-post-hero-content {
+        background: none;
+        text-align: left;
+        padding: 0;
+    }
+
+    .cs-post-title {
+        font-size: 28pt;
+        margin: 10px 0;
+        color: #000;
+        page-break-after: avoid;
+    }
+
+    /* Post content */
+    .cs-post-content {
+        padding: 0;
+        background: #fff;
+    }
+
+    .cs-post-body {
+        color: #000;
+        line-height: 1.6;
+    }
+
+    .cs-post-body p {
+        margin: 0 0 12pt 0;
+        orphans: 3;
+        widows: 3;
+    }
+
+    .cs-post-body h2,
+    .cs-post-body h3,
+    .cs-post-body h4 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        margin-top: 12pt;
+        margin-bottom: 6pt;
+        color: #000;
+        font-weight: bold;
+    }
+
+    .cs-post-body ul,
+    .cs-post-body ol {
+        margin: 12pt 0;
+        padding-left: 20pt;
+    }
+
+    .cs-post-body li {
+        margin: 6pt 0;
+        page-break-inside: avoid;
+    }
+
+    /* Recipe card specific styles */
+    .wprm-recipe {
+        page-break-inside: avoid;
+        border: 1px solid #ccc;
+        padding: 15pt;
+        margin: 15pt 0;
+        page-break-before: always;
+        background: #fff;
+    }
+
+    .wprm-recipe-header {
+        page-break-after: avoid;
+        margin-bottom: 12pt;
+    }
+
+    .wprm-recipe-title {
+        font-size: 20pt;
+        margin: 0 0 8pt 0;
+        font-weight: bold;
+        color: #000;
+        page-break-after: avoid;
+    }
+
+    .wprm-recipe-summary {
+        display: flex;
+        gap: 20pt;
+        margin: 10pt 0;
+        page-break-inside: avoid;
+    }
+
+    .wprm-recipe-meta {
+        margin: 8pt 0;
+        font-size: 11pt;
+    }
+
+    .wprm-recipe-meta-item {
+        margin-right: 15pt;
+        display: inline-block;
+    }
+
+    /* Recipe image */
+    .wprm-recipe-image {
+        page-break-inside: avoid;
+        margin: 15pt 0;
+        text-align: center;
+    }
+
+    .wprm-recipe-image img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+
+    /* Ingredients section */
+    .wprm-recipe-ingredients {
+        page-break-inside: avoid;
+        margin: 15pt 0;
+    }
+
+    .wprm-recipe-ingredients-header {
+        font-size: 14pt;
+        font-weight: bold;
+        margin: 10pt 0;
+        color: #000;
+        page-break-after: avoid;
+    }
+
+    .wprm-recipe-ingredient {
+        margin: 6pt 0;
+        page-break-inside: avoid;
+        padding-left: 15pt;
+    }
+
+    .wprm-recipe-ingredient-group {
+        margin: 12pt 0;
+    }
+
+    .wprm-recipe-ingredient-group-header {
+        font-weight: bold;
+        margin: 8pt 0 4pt 0;
+        color: #000;
+    }
+
+    /* Instructions section */
+    .wprm-recipe-instructions {
+        page-break-inside: avoid;
+        margin: 15pt 0;
+    }
+
+    .wprm-recipe-instructions-header {
+        font-size: 14pt;
+        font-weight: bold;
+        margin: 10pt 0;
+        color: #000;
+        page-break-after: avoid;
+    }
+
+    .wprm-recipe-instruction {
+        margin: 8pt 0;
+        page-break-inside: avoid;
+        padding-left: 15pt;
+        line-height: 1.6;
+    }
+
+    .wprm-recipe-instruction-group-header {
+        font-weight: bold;
+        margin: 10pt 0 4pt 0;
+        color: #000;
+    }
+
+    /* Additional recipe sections */
+    .wprm-recipe-notes {
+        margin: 15pt 0;
+        page-break-inside: avoid;
+    }
+
+    .wprm-recipe-notes-header {
+        font-weight: bold;
+        margin-bottom: 6pt;
+    }
+
+    .wprm-recipe-note {
+        margin: 6pt 0;
+        font-style: italic;
+        font-size: 11pt;
+    }
+
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12pt 0;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid #999;
+    }
+
+    th,
+    td {
+        padding: 6pt;
+        text-align: left;
+    }
+
+    /* Links */
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: none !important;
+    }
+
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Blockquotes */
+    blockquote {
+        border-left: 3pt solid #999;
+        margin: 12pt 0;
+        padding-left: 10pt;
+        page-break-inside: avoid;
+    }
+
+    /* Code blocks */
+    pre {
+        border: 1px solid #ccc;
+        padding: 10pt;
+        background: #f5f5f5;
+        page-break-inside: avoid;
+        overflow: auto;
+    }
+
+    /* Avoid page breaks inside important elements */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Containers */
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* WordPress specific */
+    .wp-caption {
+        page-break-inside: avoid;
+    }
+
+    /* Print recipe at top of page */
+    .wprm-recipe:first-of-type {
+        page-break-before: avoid;
+    }
+}

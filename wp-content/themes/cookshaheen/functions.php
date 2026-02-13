@@ -122,3 +122,52 @@ function cookshaheen_excerpt_more($more) {
     return '...';
 }
 add_filter('excerpt_more', 'cookshaheen_excerpt_more');
+
+/**
+ * Generate a standard XML sitemap automatically
+ */
+function cookshaheen_generate_sitemap() {
+    $posts_for_sitemap = get_posts(array(
+        'numberposts' => -1,
+        'orderby'    => 'modified',
+        'post_type'   => array('post', 'page'),
+        'post_status' => 'publish',
+        'order'       => 'DESC'
+    ));
+
+    $sitemap = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+    $sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+    
+    // Add Home Page
+    $sitemap .= '  <url>' . "\n";
+    $sitemap .= '    <loc>' . esc_url( home_url( '/' ) ) . '</loc>' . "\n";
+    $sitemap .= '    <changefreq>daily</changefreq>' . "\n";
+    $sitemap .= '    <priority>1.0</priority>' . "\n";
+    $sitemap .= '  </url>' . "\n";
+
+    foreach ($posts_for_sitemap as $post) {
+        $sitemap .= '  <url>' . "\n";
+        $sitemap .= '    <loc>' . get_permalink($post->ID) . '</loc>' . "\n";
+        $sitemap .= '    <lastmod>' . get_the_modified_date('c', $post->ID) . '</lastmod>' . "\n";
+        $sitemap .= '    <changefreq>weekly</changefreq>' . "\n";
+        $sitemap .= '    <priority>0.8</priority>' . "\n";
+        $sitemap .= '  </url>' . "\n";
+    }
+
+    $sitemap .= '</urlset>';
+
+    // Write to file in root directory
+    $sitemap_path = ABSPATH . 'sitemap.xml';
+    $fp = fopen($sitemap_path, 'w');
+    if ($fp) {
+        fwrite($fp, $sitemap);
+        fclose($fp);
+    }
+}
+
+// Refresh sitemap on post changes
+add_action('publish_post', 'cookshaheen_generate_sitemap');
+add_action('publish_page', 'cookshaheen_generate_sitemap');
+add_action('save_post', 'cookshaheen_generate_sitemap');
+add_action('deleted_post', 'cookshaheen_generate_sitemap');
+add_action('switch_theme', 'cookshaheen_generate_sitemap');

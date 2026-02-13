@@ -32,11 +32,11 @@ remove_action('astra_footer', 'astra_footer_markup');
         </a>
         
         <ul class="cs-nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
+            <li><a href="<?php echo home_url(); ?>">Home</a></li>
             <li><a href="#features">Features</a></li>
-            <li><a href="#recipes">Recipes</a></li>
+            <li><a href="<?php echo home_url('/recipes'); ?>">Recipes</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact" class="cs-nav-cta">Get Started</a></li>
+            <li><a href="<?php echo home_url('/recipes'); ?>" class="cs-nav-cta">Get Started</a></li>
         </ul>
         
         <div class="cs-mobile-toggle" id="mobileToggle">
@@ -128,6 +128,51 @@ remove_action('astra_footer', 'astra_footer_markup');
         </div>
         
         <div class="cs-recipes-grid">
+            <?php
+            $recipes_query = new WP_Query(array(
+                'post_type' => 'post',
+                'posts_per_page' => 6,
+                'orderby' => 'date',
+                'order' => 'DESC'
+            ));
+            
+            if ($recipes_query->have_posts()) :
+                while ($recipes_query->have_posts()) : $recipes_query->the_post();
+                    $categories = get_the_category();
+                    $cat_name = $categories ? $categories[0]->name : 'Recipe';
+            ?>
+            <div class="cs-recipe-card">
+                <div class="cs-recipe-image">
+                    <?php if (has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail('medium_large'); ?>
+                    <?php else : ?>
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop" alt="<?php the_title(); ?>">
+                    <?php endif; ?>
+                    <span class="cs-recipe-badge"><?php echo esc_html($cat_name); ?></span>
+                    <span class="cs-recipe-time"><i class="fas fa-clock"></i> 30 min</span>
+                </div>
+                <div class="cs-recipe-content">
+                    <h3><?php the_title(); ?></h3>
+                    <p><?php echo wp_trim_words(get_the_excerpt(), 15, '...'); ?></p>
+                    <div class="cs-recipe-meta">
+                        <span class="cs-recipe-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span style="color: #666; margin-left: 5px;">4.8</span>
+                        </span>
+                        <a href="<?php the_permalink(); ?>" class="cs-recipe-link">View Recipe <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+            ?>
+            <!-- Fallback if no posts -->
             <div class="cs-recipe-card">
                 <div class="cs-recipe-image">
                     <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop" alt="Homemade Pizza">
@@ -146,60 +191,15 @@ remove_action('astra_footer', 'astra_footer_markup');
                             <i class="fas fa-star-half-alt"></i>
                             <span style="color: #666; margin-left: 5px;">4.8</span>
                         </span>
-                        <a href="#" class="cs-recipe-link">View Recipe <i class="fas fa-arrow-right"></i></a>
+                        <a href="<?php echo home_url('/recipes'); ?>" class="cs-recipe-link">View Recipe <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-            
-            <div class="cs-recipe-card">
-                <div class="cs-recipe-image">
-                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&h=400&fit=crop" alt="Biryani">
-                    <span class="cs-recipe-badge">Chef's Special</span>
-                    <span class="cs-recipe-time"><i class="fas fa-clock"></i> 60 min</span>
-                </div>
-                <div class="cs-recipe-content">
-                    <h3>Aromatic Chicken Biryani</h3>
-                    <p>Fragrant basmati rice layered with tender spiced chicken, herbs, and caramelized onions.</p>
-                    <div class="cs-recipe-meta">
-                        <span class="cs-recipe-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span style="color: #666; margin-left: 5px;">5.0</span>
-                        </span>
-                        <a href="#" class="cs-recipe-link">View Recipe <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="cs-recipe-card">
-                <div class="cs-recipe-image">
-                    <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&h=400&fit=crop" alt="French Toast">
-                    <span class="cs-recipe-badge">Breakfast</span>
-                    <span class="cs-recipe-time"><i class="fas fa-clock"></i> 20 min</span>
-                </div>
-                <div class="cs-recipe-content">
-                    <h3>Classic French Toast</h3>
-                    <p>Golden crispy French toast with maple syrup, fresh berries, and a dusting of powdered sugar.</p>
-                    <div class="cs-recipe-meta">
-                        <span class="cs-recipe-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span style="color: #666; margin-left: 5px;">4.7</span>
-                        </span>
-                        <a href="#" class="cs-recipe-link">View Recipe <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
         
         <div style="text-align: center; margin-top: 50px;">
-            <a href="#" class="cs-btn cs-btn-primary">
+            <a href="<?php echo home_url('/recipes'); ?>" class="cs-btn cs-btn-primary">
                 View All Recipes <i class="fas fa-arrow-right"></i>
             </a>
         </div>
@@ -314,10 +314,10 @@ remove_action('astra_footer', 'astra_footer_markup');
                 </a>
                 <p>Discover the joy of cooking with our collection of delicious recipes, cooking tips, and culinary inspiration for food lovers everywhere.</p>
                 <div class="cs-footer-social">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://www.facebook.com/cookshaheenYT" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/cookshaheen" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCMz3YgTS-WhOb0_hcfgdw2w" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://in.pinterest.com/cookshaheen/" aria-label="Pinterest" target="_blank"><i class="fab fa-pinterest-p"></i></a>
                 </div>
             </div>
             

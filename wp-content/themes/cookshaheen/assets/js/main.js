@@ -210,5 +210,139 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Recipe Print Handler
+    const printButtons = document.querySelectorAll('.wprm-recipe-print, [data-wprm-recipe-print]');
+    printButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Get the recipe element (closest .wprm-recipe or fallback to recipe container)
+            const recipe = this.closest('.wprm-recipe') || document.querySelector('.wprm-recipe');
+
+            if (recipe) {
+                // Create a new window for printing
+                const printWindow = window.open('', '', 'width=900,height=1000');
+                const printContent = recipe.cloneNode(true);
+
+                // Add print styles
+                const printStyles = `
+                    <style>
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                        }
+                        
+                        body {
+                            font-family: 'Poppins', Arial, sans-serif;
+                            line-height: 1.6;
+                            color: #000;
+                            background: #fff;
+                            padding: 20px;
+                        }
+                        
+                        .wprm-recipe {
+                            max-width: 100%;
+                            border: 1px solid #ddd;
+                            padding: 20px;
+                        }
+                        
+                        .wprm-recipe-title {
+                            font-size: 24px;
+                            font-weight: bold;
+                            margin-bottom: 15px;
+                            color: #000;
+                        }
+                        
+                        .wprm-recipe-meta,
+                        .wprm-recipe-summary {
+                            margin-bottom: 15px;
+                            font-size: 14px;
+                        }
+                        
+                        .wprm-recipe-image {
+                            text-align: center;
+                            margin: 20px 0;
+                        }
+                        
+                        .wprm-recipe-image img {
+                            max-width: 100%;
+                            height: auto;
+                        }
+                        
+                        .wprm-recipe-ingredients-header,
+                        .wprm-recipe-instructions-header {
+                            font-size: 16px;
+                            font-weight: bold;
+                            margin-top: 20px;
+                            margin-bottom: 10px;
+                            color: #000;
+                        }
+                        
+                        .wprm-recipe-ingredient,
+                        .wprm-recipe-instruction {
+                            margin-bottom: 8px;
+                            line-height: 1.6;
+                        }
+                        
+                        .wprm-recipe-ingredient:before {
+                            content: "• ";
+                            margin-right: 8px;
+                        }
+                        
+                        .wprm-recipe-instruction {
+                            margin-left: 20px;
+                        }
+                        
+                        /* Hide interactive elements */
+                        .wprm-recipe-actions,
+                        .wprm-recipe-buttons,
+                        .wprm-recipe-print,
+                        .wprm-recipe-pin,
+                        button,
+                        a {
+                            display: none !important;
+                        }
+                        
+                        @media print {
+                            body {
+                                margin: 0;
+                                padding: 0;
+                            }
+                        }
+                    </style>
+                `;
+
+                // Remove action buttons from cloned content
+                const buttons = printContent.querySelectorAll('.wprm-recipe-actions, .wprm-recipe-buttons, .wprm-recipe-print, .wprm-recipe-pin, button');
+                buttons.forEach(btn => btn.remove());
+
+                // Write content to print window
+                printWindow.document.write('<!DOCTYPE html>');
+                printWindow.document.write('<html>');
+                printWindow.document.write('<head>');
+                printWindow.document.write('<meta charset="UTF-8">');
+                printWindow.document.write('<title>' + (printContent.querySelector('.wprm-recipe-title')?.innerText || 'Recipe') + '</title>');
+                printWindow.document.write(printStyles);
+                printWindow.document.write('</head>');
+                printWindow.document.write('<body>');
+                printWindow.document.write(printContent.innerHTML);
+                printWindow.document.write('</body>');
+                printWindow.document.write('</html>');
+                printWindow.document.close();
+
+                // Trigger print dialog after content loads
+                setTimeout(() => {
+                    printWindow.focus();
+                    printWindow.print();
+                    printWindow.close();
+                }, 250);
+            } else {
+                // Fallback to browser print function
+                window.print();
+            }
+        });
+    });
+
     console.log('🍳 CookShaheen loaded successfully!');
 });

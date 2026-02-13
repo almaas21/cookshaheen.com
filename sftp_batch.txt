@@ -1,0 +1,5 @@
+lcd "c:/Users/Syed_Parvez/cookshaheen.com"
+cd /public_html
+put deploy_halwa.php
+put gajar-halwa.png
+bye
