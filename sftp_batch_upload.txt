@@ -1,0 +1,5 @@
+cd domains/cookshaheen.com/public_html
+put methi_matar_malai_recipe.html
+cd wp-content/themes/cookshaheen
+put functions.php
+bye

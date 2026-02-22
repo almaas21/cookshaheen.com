@@ -1,0 +1,3 @@
+cd domains/cookshaheen.com/public_html
+rm deploy_methi.php
+bye

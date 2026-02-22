@@ -870,7 +870,7 @@ img {
 
 /* ===== WP RECIPE MAKER STYLING ===== */
 .wprm-recipe-container {
-    max-width: 800px;
+    max-width: 1100px;
     margin: 40px auto;
     padding: 40px;
     background: #fff;
@@ -1251,7 +1251,7 @@ img {
 /* Single Post Recipe Page Styling */
 .single-post .entry-content,
 .single .entry-content {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -1508,7 +1508,7 @@ img {
 }
 
 .cs-post-body {
-    max-width: 800px;
+    max-width: 1100px;
     margin: 0 auto;
     font-size: 1.1rem;
     line-height: 1.9;
